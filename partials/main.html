@@ -1,0 +1,19 @@
+<div id="header" class="row">
+ <div class="large-12 columns">
+  <div class="headline-image">
+   <header>{{article.title}}</header>
+   <h2>{{article.blurb}}</h2>
+  </div>
+  <h3 ng-show="byline.length">by {{byline}}</h3>
+  <hr/>
+ </div>
+</div>
+<div id="main-content" class="row">
+ <p ng-repeat="paragraph in articleParagraphs" ng-bind-html="to_trusted(paragraph)">{{paragraph}}</p>
+</div>
+<script src="lib/foundation-5.2.2/js/foundation.min.js"></script>
+<script src="lib/cross-browser-grayscale/js/grayscale.js"></script>
+<script src="lib/cross-browser-grayscale/js/functions.js"></script>
+<script>
+ $(document).foundation();
+</script>

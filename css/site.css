@@ -1,0 +1,102 @@
+body{
+ font-family: Georgia, Arial, Helvetica, sans-serif;
+ font-style: normal;
+ line-height: 64px;
+ height: 100%;
+ min-height: 100%;
+ color: #2a2a2a;
+ background: #fff;
+}
+.headline-image{
+ position: relative;
+ vertical-align: bottom;
+ text-align: center;
+ height: 600px;
+ padding: 10px;
+ background-size: auto 600px;
+ background-repeat: no-repeat;
+}
+.headline-image header{
+ position: absolute;
+ color: #fff;
+ font-family: "Franklin ITC Pro Light", Georgia, Arial;
+ font-size: 40pt;
+ bottom: 64pt;
+ padding: 10px;
+ width: 100%;
+}
+.headline-image h2{
+ position: absolute;
+ bottom: 0;
+ color: #fff;
+ font-size: 22pt;
+}
+.byline h3{
+ text-align: center;
+ font-size: 18pt;
+}
+h1{
+ color: #fff;
+ font-size: 24px;
+ font-weight: 300;
+ line-height: 38px;
+ margin: 25px 0 15px;
+ padding: 0;
+}
+a{
+ color: #2c5472;
+}
+.clear{
+ float: none;
+ clear: both;
+}
+.float-left{
+ float: left;
+ clear: none;
+}
+/* Start media queries. TODO: finish this and make sure to add styles to emulate Kindles within the desktop/laptop queries */
+@media (min-width: 980px){ /*desktop, laptop*/
+ #main-content{
+  padding-left: 15px;
+  padding-right: 15px;
+  color: gray;
+ }
+ .row{
+  max-width: 62.5rem !important;
+ }
+ .row.full-width{
+  width: 100%;
+  max-width: 100%;
+ }
+}
+@media screen and (min-device-width: 1280px) and (max-device-width: 1280px){ /* Second gen Kindle */
+ #main-content{
+  padding-left: 15px;
+  padding-right: 15px;
+ }
+ .row{
+  max-width: 62.5rem !important;
+ }
+ .row.full-width{
+  width: 100%;
+  max-width: 100%;
+ }
+}
+@media screen and (min-device-width: 1920px) and (max-device-width: 1920px){ /* Kindle 8.9 */
+ #main-content{
+  padding-left: 15px;
+  padding-right: 15px;
+ }
+ .row{
+  max-width: 62.5rem !important;
+ }
+ .row.full-width{
+  width: 100%;
+  max-width: 100%;
+ }
+}
+#main-content h3{
+ font-family: Arial, Helvetica, sans-serif;
+ padding-bottom: 10px;
+ padding-top: 10px;
+}
