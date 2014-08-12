@@ -9,7 +9,9 @@
  </div>
 </div>
 <div id="main-content" class="row">
- <p ng-repeat="paragraph in articleParagraphs" ng-bind-html="to_trusted(paragraph)">{{paragraph}}</p>
+ <div class="large-12 columns">
+  <p ng-repeat="paragraph in articleParagraphs" ng-bind-html="to_trusted(paragraph)">{{paragraph}}</p>
+ </div>
 </div>
 <script src="lib/foundation-5.2.2/js/foundation.min.js"></script>
 <script src="lib/cross-browser-grayscale/js/grayscale.js"></script>
