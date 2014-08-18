@@ -12,6 +12,10 @@ curationViewerApp.config(['$routeProvider', '$locationProvider',
       when('/', {
         templateUrl: 'partials/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/resolution/:resolution', { //
+       templateUrl: 'partials/main.html',
+       controller: 'MainCtrl'
       });
       //.otherwise({redirectTo:'/'});
 }]);

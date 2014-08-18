@@ -1,11 +1,11 @@
 <div id="header" class="row">
  <div class="large-12 columns">
-  <div class="headline-image">
-   <header>{{article.title}}</header>
-   <h2>{{article.blurb}}</h2>
+  <div class="headline headline-image">
+   <header>{{title}}</header>
+   <h2 ng-show="article.blurb.length">{{article.blurb}}</h2>
   </div>
-  <h3 ng-show="byline.length">by {{byline}}</h3>
-  <hr/>
+  <h3 class="byline" ng-show="byline.length">{{byline}}</h3>
+  <hr ng-show="headerHasImage" />
  </div>
 </div>
 <div id="main-content" class="row">

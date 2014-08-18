@@ -1,4 +1,5 @@
-@media (min-width: 980px){ /*desktop, laptop*/
+@media only screen 
+and (min-width : 1024px){/*desktop, laptop*/
  body{
   font-family: Georgia, Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -16,6 +17,23 @@
   transform: scale(1.3) !important;
   overflow-x: hidden;
  }
+ .headline{
+  clear: both;
+  position: relative;
+  display: block;
+  top: 10px;
+  margin: 0 auto;
+  width: 98%;
+ }
+ header{
+  display: block;
+  /*position: absolute;*/
+  color: #000;
+  font-family: "Franklin ITC Pro Light", Georgia, Arial;
+  font-size: 40pt;
+  bottom: 36pt;
+  text-align: center;
+ }
 }
 .headline-image{
  position: relative;
@@ -26,32 +44,23 @@
  background-size: auto 600px;
  background-repeat: no-repeat;
 }
-.headline-image header{
- position: absolute;
- color: #fff;
- font-family: "Franklin ITC Pro Light", Georgia, Arial;
- font-size: 40pt;
- bottom: 64pt;
- padding: 10px;
- width: 100%;
-}
 .headline-image h2{
  position: absolute;
  bottom: 0;
  color: #fff;
  font-size: 22pt;
 }
-.byline h3{
- text-align: center;
+h3.byline{
+ width: 98%;
+ margin: 0 auto;
  font-size: 18pt;
+ padding-top: 15px;
 }
 h1{
  color: #fff;
- font-size: 2em;
- font-family: "FranklinITCProBold","HelveticaNeue","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
- /*font-size: 24px;
+ font-size: 24px;
  font-weight: 300;
- line-height: 38px;*/
+ line-height: 38px;
  margin: 25px 0 15px;
  padding: 0;
 }
@@ -85,14 +94,32 @@ a{
 @media only screen
 and (min-width: 595px)
 and (max-width: 610px){
-/* YOUR STYLE GOES HERE */
+ header{
+  display: block;
+  /*position: absolute;*/
+  color: #000;
+  font-family: "Franklin ITC Pro Light", Georgia, Arial;
+  font-size: 34pt;
+  bottom: 64pt;
+  padding: 10px;
+  width: 100%;
+ }
 }
 
 /* Kindle Landscape 1024 X 600. Possibly 6" */
 @media only screen
 and (min-width: 1000px)
 and (max-width: 1030px){
-/* YOUR STYLE GOES HERE */
+ header{
+  display: block;
+  /*position: absolute;*/
+  color: #000;
+  font-family: "Franklin ITC Pro Light", Georgia, Arial;
+  font-size: 40pt;
+  bottom: 64pt;
+  padding: 10px;
+  width: 100%;
+ }
 }
 
 @media screen and (min-device-width: 1280px) and (max-device-width: 1280px){ /* Kindle 7" first and second gen */
@@ -104,8 +131,18 @@ and (max-width: 1030px){
   width: 96%;
   max-width: 96%;
  }
+ header{
+  display: block;
+  /*position: absolute;*/
+  color: #000;
+  font-family: "Franklin ITC Pro Light", Georgia, Arial;
+  font-size: 40pt;
+  bottom: 64pt;
+  padding: 10px;
+  width: 100%;
+ }
 }
-@media screen and (min-device-width: 1920px) and (max-device-width: 1920px){ /* Kindle 8.9" */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1200px){ /* Kindle 8.9", portrait */
  #main-content{
   padding-left: 15px;
   padding-right: 15px;
@@ -116,6 +153,16 @@ and (max-width: 1030px){
  .row.full-width{
   width: 96%;
   max-width: 96%;
+ }
+ header{
+  display: block;
+  /*position: absolute;*/
+  color: #000;
+  font-family: "Franklin ITC Pro Light", Georgia, Arial;
+  font-size: 40pt;
+  bottom: 64pt;
+  padding: 10px;
+  width: 100%;
  }
 }
 #main-content h3{
