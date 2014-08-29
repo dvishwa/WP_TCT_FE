@@ -14,18 +14,10 @@ curationViewerControllers
    $scope.articleImage = '';
    $scope.byline = '';
    $scope.title = '';
-   //$scope.headerHasImage = false;
-   console.log('header');
-   console.log(header);
 
    $scope.$watch('headerHasImage', function(){
-    console.log('hey, headerHasImage has changed!');
-    console.log($scope.headerHasImage);
-    console.log('headlineImageHeader');
-    console.log(headlineImageHeader);
     if(typeof $scope.headerHasImage !== 'undefined' && !$scope.headerHasImage){ //If no image should be displayed, then set CSS styles to disregard an image.
      headline.removeClass('headline-image');
-     //headlineImage.css('background-size', 0).css('display', 'block').css('position', 'relative').css('margin-top', '20px').css('height', '70px');
      headlineImageHeader.css('color', '#000'); //Header text.
     }
    });
@@ -33,11 +25,11 @@ curationViewerControllers
    $scope.getContent = function(){
     $http({
      method: 'GET',
-     url: 'js/data/obama-vacation.json'
+     url: 'js/data/article1.json'
     }).
-    success(function(data){
+    success(function(data, status, resp){
      $scope.article = data;
-     $scope.getArticleData(data);
+     $scope.getArticleData(data, status, resp);
     }).
     error(function(data, status){
      console.log('error');
@@ -45,9 +37,11 @@ curationViewerControllers
     });
    }();
 
-  $scope.getArticleData = function(data){
+  $scope.getArticleData = function(data, status, resp){
    var articleData = {},
-       articleItems = data.items;
+       articleItems = data.items,
+       blurb = data.blurb,
+       inlineCnt = 0;
    if(typeof $routeParams.resolution !== 'undefined'){ //set the breakpoint based on passed resolution.
     //alert($routeParams.resolution);
     //angular.element(body).css('background-image', 'url(' + articleImage +')');
@@ -77,13 +71,33 @@ curationViewerControllers
      $scope.articleParagraphs.push(articleItems[key].content);
     }
     else if(articleItems[key].type === 'inline_story'){ //Inline stories, push them along with the story paragraphs, including heading, image with URL.
-     var inlineImage = '<a href="' + articleItems[key].url + '"><img src="' + articleItems[key].imageURL + '" /></a>';
-     $scope.articleParagraphs.push('<h2>Inline Story</h2>' + inlineImage + '<h3>' + articleItems[key].headline + '</h3>');
+     var inlineImage = '<a href="' + articleItems[key].url + '" target="_blank"><img src="' + articleItems[key].imageURL + '" /></a>';
+     inlineCnt++;
+     var inlineStory = '<section id="inline-story"' + inlineCnt + '"></section>';
+     $scope.articleParagraphs.push(inlineStory + '<h2>Inline Story</h2>' + inlineImage + '<h3>' + articleItems[key].headline + '</h3></section');
+     /*inlineStory.appendTo('body');
+     var inlineElm = angular.element('#inline-story' + inlineCnt);
+     console.log('inlineElm');
+     console.log(inlineElm);
+     console.log('inlineCnt: ' + inlineCnt);*/
+     $('</section>', {
+    	    id: 'inline-story' + inlineCnt,
+    	    html: 'TEST'
+    	}).appendTo("body");
+     
+     //angular.element('#inline-story' + inlineCnt).innerHTML = "sdsdfsfdfsfsdfdsdfssdfsdf sdfsdfsdfdfssdsdf sdfsdfsdfsdfsdfsd";
+     console.log(angular.element("#inline-story1"));
+     console.log('resp');
+     console.log(resp());
     }
     else if(articleItems[key].type === 'byline'){ //Byline for all stories.
      $scope.byline  = articleItems[key].content;
     }
    });
+   if(blurb == null || blurb.length <= -1){ //If there is no blurb, adjust headline height to remove it's space.
+    $scope.hasBlurb = true;
+    header.css('bottom', '2%');
+   }
   };
   $scope.to_trusted = function(html_code){ //Ensures that HTML is rendered rather than just displayed.
    return $sce.trustAsHtml(html_code);
